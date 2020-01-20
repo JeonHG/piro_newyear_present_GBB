@@ -8,10 +8,10 @@
     </div>
     <div class="col-md-12 box">
       <div>회원가입</div>
-      <a href="{% url 'games:gameForm' %}"><button>게임시작</button></a>
     </div>
     {% else %}
-    <button>게임시작</button>
+    <a href="{% url 'games:gameForm' %}"><button>게임시작</button></a>
+
     {% endif %}
   </div>
 </div>
