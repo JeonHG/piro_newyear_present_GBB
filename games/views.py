@@ -12,3 +12,8 @@ def gameForm(request):
     else:
         form = ChallengeForm()
         return render(request, "games/create.html", {"form": form})
+
+
+def gameRecord(request):
+    return render(request, "games/game_record.html")
+
