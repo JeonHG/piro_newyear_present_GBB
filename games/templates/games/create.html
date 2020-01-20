@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
+- 가위바위보:) {% endblock %} {% block content %}
+<div class="container main-container">
+  <div class="row">
+    <form action="" method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">마 들어와라</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
