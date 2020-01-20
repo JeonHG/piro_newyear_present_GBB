@@ -21,4 +21,5 @@ urlpatterns = [
     # path('game/', include('game.urls')),
     path("user/", include("users.urls")),
     path("accounts/", include("allauth.urls")),
+    path("", include("games.urls")),
 ]
