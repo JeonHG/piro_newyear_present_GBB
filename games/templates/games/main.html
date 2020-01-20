@@ -2,16 +2,25 @@
 - 가위바위보:) {% endblock %} {% block content %}
 <div class="container main-container">
   <div class="row">
-    {% if request.user.is_authenticated == False %}
+    {% if request.user.is_authenticated %}
+    <div class="col-md-12 box">
+      <h2>환영합니다, {{request.user.username}}님</h2>
+    </div>
+    <div class="col-md-12 box">
+      <div>
+        <a href="{% url 'games:play' %}"><button>게임시작</button></a>
+      </div>
+    </div>
+    {% else %}
     <div class="col-md-12 box">
       <div>전 세계 피로그래머와 가위바위보를 즐겨보세요!</div>
     </div>
     <div class="col-md-12 box">
-      <div>회원가입</div>
-      <a href="{% url 'games:gameForm' %}"><button>게임시작</button></a>
+      <div>
+        <a href="{% url 'users:login' %}"><button>게임시작</button></a>
+      </div>
     </div>
-    {% else %}
-    <button>게임시작</button>
+
     {% endif %}
   </div>
 </div>

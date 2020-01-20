@@ -146,7 +146,10 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
+LOGOUT_REDIRECT_URL = "/"
+
 SITE_ID = 1
 
 
 SOCIALACCOUNT_ADAPTER = "CustomSocialAccountAdapter.SocialAccountAdapter"
+ACCOUNT_ADAPTER = "CustomSocialAccountAdapter.AccountAdapter"

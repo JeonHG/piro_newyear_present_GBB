@@ -2,6 +2,7 @@ from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.contrib.auth import get_user_model
 from allauth.account.utils import user_email, user_field, user_username
 from allauth.utils import valid_email_or_none
+from allauth.account.adapter import DefaultAccountAdapter
 
 
 class SocialAccountAdapter(DefaultSocialAccountAdapter):
@@ -34,3 +35,12 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
 # https://himanmengit.github.io/django/2019/04/22/django-allauth-socialuser-connect.html
 # https://fluffycloudsandlines.blog/using-django-allauth-for-google-login-to-any-django-app/
 # https://stackoverflow.com/questions/26287828/prepopulate-custom-form-with-social-data-in-django-allauth
+
+
+# from django.conf import settings
+
+
+class AccountAdapter(DefaultAccountAdapter):
+    def get_login_redirect_url(self, request):
+        path = "/play"
+        return path

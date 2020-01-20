@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import *
 
 # Create your views here.
@@ -14,6 +14,10 @@ def processing(request):
     if form.is_valid():
         form.save()
         print(form.save())
-        return redirect()
+        return redirect("games:status")
     else:
         pass
+
+
+def status(request):
+    return render(request, "games/game_record.html")

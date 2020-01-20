@@ -1,27 +1,21 @@
 {% load staticfiles %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <img src="{% static 'img/logo.jpg' %}" class="navbar-logo" alt="" />
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
+  <a href="{% url 'games:main' %}">
+    <img src="{% static 'img/logo.jpg' %}" class="navbar-logo" alt="" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     {% if request.user.is_authenticated == False %}
-    <a class="login" href="">
+    <a class="login" href="{% url 'users:login' %}">
       로그인
     </a>
     {% else %}
-    <a class="nav-item nav-link" href="{% url 'games:main' %}">상품 등록</a>
-    <a class="nav-item nav-link" href="{% url 'games:main' %}">거래처 등록</a>
-    <a class="nav-item nav-link" href="{% url 'games:main' %}">거래처 관리</a>
+    <a class="nav-item nav-link" href="{% url 'users:logout' %}">로그아웃</a>
+    <a class="nav-item nav-link" href="{% url 'games:status' %}">전적보기</a>
     {% endif %}
   </div>
 </nav>

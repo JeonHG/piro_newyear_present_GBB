@@ -1,21 +1,18 @@
-<h1>Here come the login buttons</h1>
-{% load socialaccount %}
-{%if request.user.is_authenticated%}
+{% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
+- 가위바위보:) {% endblock %} {% block content %}
+<h1>5초만에 로그인하고 가위바위보 하러 가기</h1>
+{% load socialaccount %} {%if request.user.is_authenticated%}
 <h2>환영합니다, {{request.user.username}}</h2>
-<button>
-    <a href="{% url "users:logout" %}?next=/">
-        로그아웃
-    </a>
-</button>
+<h3>나의 전적 보러가기</h3>
 {%else%}
-<button class="btn btn-danger">
-    <a href="{% provider_login_url 'google' %}?next={{ request.path }}">
-        구글
-    </a>
+<button class="btn btn-dark">
+  <a href="{% provider_login_url 'google' %}">
+    구글
+  </a>
 </button>
-<button class="btn btn-danger">
-    <a href="{% provider_login_url 'kakao' %}?next={{ request.path }}">
-        카카오
-    </a>
+<button class="btn btn-dark">
+  <a href="{% provider_login_url 'kakao' %}?next={{ request.path }}">
+    카카오
+  </a>
 </button>
-{%endif%}
+{%endif%} {% endblock %}
