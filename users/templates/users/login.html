@@ -1,0 +1,21 @@
+<h1>Here come the login buttons</h1>
+{% load socialaccount %}
+{%if request.user.is_authenticated%}
+<h2>환영합니다, {{request.user.username}}</h2>
+<button>
+    <a href="{% url "users:logout" %}?next=/">
+        로그아웃
+    </a>
+</button>
+{%else%}
+<button class="btn btn-danger">
+    <a href="{% provider_login_url 'google' %}?next={{ request.path }}">
+        구글
+    </a>
+</button>
+<button class="btn btn-danger">
+    <a href="{% provider_login_url 'kakao' %}?next={{ request.path }}">
+        카카오
+    </a>
+</button>
+{%endif%}

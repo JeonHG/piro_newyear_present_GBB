@@ -37,15 +37,25 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
 ]
 
 PROJECT_APPS = [
     "games.apps.GamesConfig",
     "core.apps.CoreConfig",
-    "users.apps.UsersConfig"
+    "users.apps.UsersConfig",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+ALLAUTH_APPS = [
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.kakao",
+    "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.naver",
+]
+
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + ALLAUTH_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -62,8 +72,7 @@ ROOT_URLCONF = "rsp.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
-        # "DIRS": [os.path.join(BASE_DIR, "snacks", "templates")],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -71,6 +80,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.request",
             ],
         },
     },
@@ -123,3 +133,13 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 AUTH_USER_MODEL = "users.User"
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+
+
+SOCIALACCOUNT_ADAPTER = "CustomSocialAccountAdapter.SocialAccountAdapter"

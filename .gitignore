@@ -144,3 +144,5 @@ dmypy.json
 desktop.ini
 Pipfile
 Pipfile.lock
+
+allauth_config.py
