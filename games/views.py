@@ -14,5 +14,6 @@ def processing(request):
     if form.is_valid():
         form.save()
         print(form.save())
+        return redirect()
     else:
         pass
