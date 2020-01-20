@@ -2,13 +2,17 @@ from django.shortcuts import render
 from .forms import *
 
 # Create your views here.
-def gameForm(request):
-    if request.method == "POST":
-        form = ChallengeForm(request.POST)
-        if form.is_valid():
-            game = form.save()
-            return redirect("games:main", game.id)
-        return redirect("games:main")
+def play(request):
+    form = ChallengeForm()
+    context = {"form": form}
+    return render(request, "games/create.html", context)
+
+
+def processing(request):
+    print(request.POST)
+    form = ChallengeForm(request.POST)
+    if form.is_valid():
+        form.save()
+        print(form.save())
     else:
-        form = ChallengeForm()
-        return render(request, "games/create.html", {"form": form})
+        pass

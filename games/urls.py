@@ -1,11 +1,12 @@
 from django.urls import path, include
 from core.views import home
-from .views import gameForm
+from . import views
 
 app_name = "games"
 
 urlpatterns = [
     path("", home, name="main"),
-    path("start/", gameForm, name="gameForm"),
+    path("play/", views.play, name="play"),
+    path("processing/", views.processing, name="processing"),
 ]
 
