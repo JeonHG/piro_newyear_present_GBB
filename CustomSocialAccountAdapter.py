@@ -42,5 +42,9 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
 
 class AccountAdapter(DefaultAccountAdapter):
     def get_login_redirect_url(self, request):
-        path = "/play"
-        return path
+        path = request.GET.get("next")
+        print(path)
+        return path or "/status/"
+        # path = "play/"
+        # print(path)
+        # return path

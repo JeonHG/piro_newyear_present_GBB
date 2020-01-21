@@ -9,6 +9,6 @@ urlpatterns = [
     path("", home, name="main"),
     path("play/", views.play, name="play"),
     path("processing/", views.processing, name="processing"),
-    path("status", views.status, name="status"),
+    path("status/", views.status, name="status"),
 ]
 
