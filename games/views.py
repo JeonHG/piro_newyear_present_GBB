@@ -3,17 +3,18 @@ from .forms import *
 
 # Create your views here.
 def play(request):
-    form = ChallengeForm()
+    initial_data = {"attacker_id": request.user.id}
+    form = ChallengeForm(initial=initial_data)
     context = {"form": form}
     return render(request, "games/create.html", context)
 
 
 def processing(request):
-    print(request.POST)
     form = ChallengeForm(request.POST)
     if form.is_valid():
-        form.save()
-        print(form.save())
+        instance = form.save(commit=False)
+        instance.attacker_id = request.user.id
+        instance.save()
         return redirect("games:status")
     else:
         pass
