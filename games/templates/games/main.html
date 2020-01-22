@@ -4,7 +4,7 @@
   <div class="row">
     {% if request.user.is_authenticated %}
     <div class="col-md-12 box">
-      <h2>환영합니다, {{request.user.username}}님</h2>
+      <h2 class="font1">환영합니다, {{request.user.username}}님</h2>
     </div>
     <div class="col-md-12 box">
       <a class="atag" href="{% url 'games:play' %}">
