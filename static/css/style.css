@@ -1,8 +1,16 @@
 body {
   position: relative;
   min-height: 100vh;
+  background-color: black;
+  z-index: -5;
 }
-
+.main {
+  margin-top: 5%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
 /* nav bar start */
 nav {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -42,7 +50,7 @@ nav {
 
 /* main start */
 .box {
-  height: 20vw;
+  height: 10vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +60,7 @@ nav {
 /* footer start */
 footer {
   clear: both;
-  background-color: black;
+  background-color: #343a40;
   color: white;
   font-size: 14px;
   position: absolute;
@@ -66,3 +74,71 @@ footer {
 }
 
 /* footer end */
+
+/* public */
+.font1 {
+  color: white !important;
+  font-weight: 700;
+}
+
+.container-wrap {
+  -webkit-box-shadow: 0px 0px 13px 6px rgba(150, 150, 150, 0.81);
+  -moz-box-shadow: 0px 0px 13px 6px rgba(150, 150, 150, 0.81);
+  box-shadow: 0px 0px 13px 6px rgba(150, 150, 150, 0.81);
+  border-radius: 10px;
+  padding: 5%;
+  background-color: #343a40;
+  position: relative;
+  z-index: 1;
+}
+
+/* GENERAL BUTTON STYLING */
+.btn,
+.btn::after {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn {
+  background: none;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 1em 0.5em;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.btn::before,
+.btn::after {
+  background: #fff;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+
+.btn:hover {
+  color: #343a40;
+}
+
+/* BUTTON 2 */
+.btn::after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0;
+}
+
+.btn:hover:after {
+  width: 100%;
+}
+
+.atag {
+  text-decoration: none !important;
+}
