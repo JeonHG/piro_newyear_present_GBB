@@ -10,5 +10,6 @@ urlpatterns = [
     path("play/", views.play, name="play"),
     path("processing/", views.processing, name="processing"),
     path("status/", views.status, name="status"),
+    path("defend/", views.defend, name="defend"),
 ]
 

@@ -2,6 +2,9 @@
 - 가위바위보:) {% endblock %} {% block content %}
 <div class="container main-container">
   <div class="row">
+    공격자: {{request.user}}
+  </div>
+  <div class="row">
     <form action="{% url "games:processing" %}" method="POST">
       {% csrf_token %} {{ form.as_p }}
       <button type="submit">마 들어와라</button>
