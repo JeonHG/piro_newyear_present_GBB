@@ -18,3 +18,19 @@ class ChallengeForm(forms.ModelForm):
         except KeyError:
             pass
 
+
+class DefendForm(forms.ModelForm):
+    class Meta:
+        model = Challenge
+        fields = ("defender", "defender_choice")
+
+    def __init__(self, *args, **kwargs) -> object:
+        super(DefendForm, self).__init__(*args, **kwargs)
+        try:
+            target_game = kwargs["initial"]["game"]
+            self.fields["defender"].queryset = User.objects.filter(
+                id=target_game.defender.id
+            )
+            self.fields["defender"].initial = target_game.defender
+        except KeyError:
+            pass

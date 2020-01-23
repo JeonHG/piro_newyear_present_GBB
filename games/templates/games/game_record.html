@@ -7,8 +7,10 @@
   <div class="row">
     {%for item in games%}
     <div class="col-12">
-      {{item}} - {%if item.defender_choice%}<span>승리자: {{item.winner}}</span>{%else%}<span>진행
-        중...</span>{%endif%}{%if item.defender == request.user%}<a href="{% url "games:defend" %}">대응하기</a>{%endif%}
+      <a href="{%url "games:detail" item.id %}">{{item}}</a> - {%if item.defender_choice%}<span>결과:
+        {%if item.winner == null%}무승부{%elif item.winner == request.user%}승{%else%}패{%endif%}</span>{%else%}<span>진행
+        중...</span>{%if item.defender == request.user%}<a
+        href="{% url "games:defend" item.id %}">대응하기</a>{%endif%}{%endif%}
     </div>
     {%endfor%}
   </div>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
+- 가위바위보:) {% endblock %} {% block content %}
+<div class="container main-container">
+    <div class="row">
+        {{game}}
+    </div>
+    <div class="row">
+        {{game.attacker}} - {{game.attacker_choice}}
+    </div>
+    <div class="row">
+        {{game.defender}} - {{game.defender_choice}}
+    </div>
+    <div class="row">
+        {%if item.winner == null%}무승부{%elif item.winner == request.user%}승{%else%}패{%endif%}
+    </div>
+    <a href="{%url "games:status" %}">전적보기</a>
+</div>
+
+{% endblock %}
