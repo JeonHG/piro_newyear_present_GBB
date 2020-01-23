@@ -4,21 +4,25 @@
   <div class="row">
     {% if request.user.is_authenticated %}
     <div class="col-md-12 box">
-      <h2>환영합니다, {{request.user.username}}님</h2>
+      <h2 class="font1">환영합니다, {{request.user.username}}님</h2>
     </div>
     <div class="col-md-12 box">
-      <div>
-        <a href="{% url 'games:play' %}"><button>게임시작</button></a>
-      </div>
+      <a class="atag" href="{% url 'games:play' %}">
+        <div class="btn-wrap">
+          <button class="btn">게임시작</button>
+        </div></a
+      >
     </div>
     {% else %}
     <div class="col-md-12 box">
-      <div>전 세계 피로그래머와 가위바위보를 즐겨보세요!</div>
+      <h1 class="font1">전 세계 피로그래머와 가위바위보를 즐겨보세요!</h1>
     </div>
     <div class="col-md-12 box">
-      <div>
-        <a href="{% url 'users:login' %}?next=/play/"><button>게임시작</button></a>
-      </div>
+      <a class="atag" href="{% url 'users:login' %}?next=/play/">
+        <div class="btn-wrap">
+          <button class="btn">게임시작</button>
+        </div></a
+      >
     </div>
 
     {% endif %}

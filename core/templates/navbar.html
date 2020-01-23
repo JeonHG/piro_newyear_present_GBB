@@ -3,19 +3,30 @@
   <a href="{% url 'games:main' %}">
     <img src="{% static 'img/logo.jpg' %}" class="navbar-logo" alt="" />
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     {% if request.user.is_authenticated == False %}
-    <a class="login" href="{% url 'users:login' %}">
+    <a class="login font1" href="{% url 'users:login' %}">
       로그인
     </a>
     {% else %}
-    <a class="nav-item nav-link" href="{% url 'users:logout' %}">로그아웃</a>
-    <a class="nav-item nav-link" href="{% url 'games:status' %}">전적보기</a>
+    <a class="nav-item nav-link font1" href="{% url 'users:logout' %}"
+      >로그아웃</a
+    >
+    <a class="nav-item nav-link font1" href="{% url 'games:status' %}"
+      >전적보기</a
+    >
     {% endif %}
   </div>
 </nav>

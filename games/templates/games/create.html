@@ -1,15 +1,16 @@
 {% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
 - 가위바위보:) {% endblock %} {% block content %}
-<div class="container main-container">
+
+
+<div class="container-wrap">
   <div class="row">
     공격자: {{request.user}}
   </div>
-  <div class="row">
-    <form action="{% url "games:processing" %}" method="POST">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="submit">마 들어와라</button>
-    </form>
-  </div>
+  <form class="font1" action="{% url "games:processing" %}" method="POST">
+    {% csrf_token %} {{ form.as_p }}
+    <div class="btn-wrap">
+      <button class="btn" type="submit">마 들어오라</button>
+    </div>
+  </form>
 </div>
-
 {% endblock %}
