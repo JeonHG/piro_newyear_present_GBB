@@ -44,6 +44,7 @@ PROJECT_APPS = [
     "games.apps.GamesConfig",
     "core.apps.CoreConfig",
     "users.apps.UsersConfig",
+    "pcgames.apps.PcgamesConfig",
 ]
 
 ALLAUTH_APPS = [

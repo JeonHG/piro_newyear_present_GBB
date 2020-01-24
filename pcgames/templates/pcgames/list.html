@@ -1,0 +1,13 @@
+<a href="{% url "games:main" %}">사람과 플레이하기</a>
+<a href="{% url "pcgames:play" %}">컴퓨터와 플레이하기</a>
+<div>
+
+    컴퓨터 vs. 나의 전적
+</div>
+{%for item in pcgames%}
+<div>
+    <a href="{% url "pcgames:detail" item.id %}">
+        {{item}}
+    </a>
+</div>
+{%endfor%}

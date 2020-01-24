@@ -1,0 +1,15 @@
+<div class="container main-container">
+    <div class="row">
+        {{pcgame}}
+    </div>
+    <div class="row">
+        인간의 선택 - {{pcgame.human_choice}}
+    </div>
+    <div class="row">
+        컴퓨터의 선택 - {{pcgame.computer_choice}}
+    </div>
+    <div class="row">
+        {%if pcgame.winner == nullr%}무승부{%elif pcgame.winner%}인간 승{%else%}컴퓨터 승{%endif%}
+    </div>
+    <a href="{%url "pcgames:status" %}">전적보기</a>
+</div>

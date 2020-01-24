@@ -8,7 +8,7 @@ class Weapon(models.Model):
     """ Weapon model definition"""
 
     SCISSORS = 0
-    ROCK = 1 
+    ROCK = 1
     PAPER = 2
     NAME_CHOICES = (
         (SCISSORS, "가위"),
@@ -31,18 +31,28 @@ class Challenge(core_models.TimeStampedModel):
 
     """challenge model definition"""
 
-    attacker = models.ForeignKey(User, related_name="attacker", on_delete=models.SET_NULL, null=True)
-    defender = models.ForeignKey(User, related_name="defender", on_delete=models.SET_NULL, null=True)
+    attacker = models.ForeignKey(
+        User, related_name="attacker", on_delete=models.SET_NULL, null=True
+    )
+    defender = models.ForeignKey(
+        User, related_name="defender", on_delete=models.SET_NULL, null=True
+    )
     attacker_choice = models.ForeignKey(
-        Weapon, related_name="pc_choice", on_delete=models.SET_NULL, null=True
+        Weapon, related_name="attacker_choice", on_delete=models.SET_NULL, null=True
     )
     defender_choice = models.ForeignKey(
-        Weapon, related_name="human_choice", on_delete=models.SET_NULL, null=True, blank=True
+        Weapon,
+        related_name="defender_choice",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
     )
-    winner = models.ForeignKey(User, related_name="winner", on_delete=models.SET_NULL, null=True, blank=True)
+    winner = models.ForeignKey(
+        User, related_name="winner", on_delete=models.SET_NULL, null=True, blank=True
+    )
 
     def __str__(self):
-        return f'{self.id} - {self.attacker} vs {self.defender}'
+        return f"{self.id} - {self.attacker} vs {self.defender}"
 
     def get_winner(self):
         if self.attacker_choice and self.defender_choice:
@@ -55,4 +65,5 @@ class Challenge(core_models.TimeStampedModel):
                 return self.defender
         else:
             return "경기중"
+
     get_winner.short_description = "winner"

@@ -10,8 +10,8 @@
       <a class="atag" href="{% url 'games:play' %}">
         <div class="btn-wrap">
           <button class="btn">게임시작</button>
-        </div></a
-      >
+        </div>
+      </a>
     </div>
     {% else %}
     <div class="col-md-12 box">
@@ -21,11 +21,21 @@
       <a class="atag" href="{% url 'users:login' %}?next=/play/">
         <div class="btn-wrap">
           <button class="btn">게임시작</button>
-        </div></a
-      >
+        </div>
+      </a>
     </div>
 
     {% endif %}
+    <div class="col-md-12 box">
+
+      <a class="atag" href="{% url "pcgames:status" %}">
+        <div class="btn-wrap">
+          <button class="btn">
+            컴퓨터와 게임
+          </button>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 
