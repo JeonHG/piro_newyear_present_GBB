@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
 - 가위바위보:) {% endblock %} {% block content %}
 
-
+<div class="main">
 <div class="container-wrap">
   <div class="row font1">
     공격자: {{request.user}}
@@ -12,5 +12,6 @@
       <button class="btn" type="submit">마 들어오라</button>
     </div>
   </form>
+</div>
 </div>
 {% endblock %}

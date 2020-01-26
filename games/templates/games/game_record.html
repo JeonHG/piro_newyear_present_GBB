@@ -1,17 +1,46 @@
 {% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
 - 가위바위보:) {% endblock %} {% block content %}
-<div class="container main-container">
-  <div class="row">
+<div class="container game-record-main">
+  <div class="row font1">
     전적 페이지
   </div>
   <div class="row">
     {%for item in games%}
-    <div class="col-12">
-      <a href="{%url "games:detail" item.id %}">{{item}}</a> - {%if item.defender_choice%}<span>결과:
-        {%if item.winner == null%}무승부{%elif item.winner == request.user%}승{%else%}패{%endif%}</span>{%else%}<span>진행
-        중...</span>{%if item.defender == request.user%}<a
-        href="{% url "games:defend" item.id %}">대응하기</a>{%endif%}{%endif%}
-    </div>
+    <div class="col-12 record-box">
+      <div class="row">
+        <div class="col-12 col-sm-4 box">
+          {{item}}
+        </div>
+        {%if item.defender_choice%}
+          <div class="col-12 col-sm-4 box">
+            <span >결과:
+              {%if item.winner == null%}
+              무승부
+              {%elif item.winner == request.user%}
+              승
+              {%else%}
+              패
+              {%endif%}
+            </span>
+          </div>
+        {%else%}
+          <div class="col-12 col-sm-4 box">  
+            {%if item.defender == request.user%}
+              <a class="atag" href="{% url "games:defend" item.id %}">
+                <button class="record-btn">대응하기</button>
+              </a>
+            {%else%}
+              <span>진행중...</span>
+            {%endif%}
+          </div>
+        {%endif%}
+        <div class="col-12 col-sm-4 box">
+          <a class="atag" href="{%url "games:detail" item.id %}">
+            <button class="record-btn">게임정보</button>
+          </a>
+        </div>
+      </div>
+  </div>
     {%endfor%}
   </div>
 </div>

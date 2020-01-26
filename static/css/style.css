@@ -1,8 +1,11 @@
+/* 메인, 버튼, 바디 관련 css */
+
 body {
   position: relative;
   min-height: 100vh;
-  background-color: black;
+  background-color: rgb(36, 36, 36);
   z-index: -5;
+  padding-bottom: 70px;
 }
 .main {
   height: 70vh;
@@ -10,8 +13,6 @@ body {
   text-align: center;
   justify-content: center;
   align-items: center;
-}
-.main-container {
 }
 /* nav bar start */
 nav {
@@ -52,10 +53,10 @@ nav {
 
 /* main start */
 .box {
-  height: 10vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 .box-login {
   width: 100%;
@@ -68,7 +69,7 @@ nav {
 /* main end */
 
 /* footer start */
-footer {
+.footer {
   clear: both;
   background-color: #343a40;
   color: white;
@@ -107,9 +108,11 @@ footer {
 
 /* GENERAL BUTTON STYLING */
 .btn,
+.record-btn,
 .btn-social,
-.btn::after,
-.btn-social::after {
+.btn:after,
+.btn-social:after,
+.record-btn:after {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -124,27 +127,31 @@ footer {
   display: block;
   font-size: 30px;
   font-weight: bold;
-  margin: 1em auto;
+  margin: 0.3em auto;
   padding: 0.1em 0.5em;
   position: relative;
   text-transform: uppercase;
 }
 
-.btn::before,
-.btn::after {
+.btn:before,
+.btn:after,
+.record-btn:before,
+.record-btn:after {
   background: #fff;
   content: "";
   position: absolute;
   z-index: -1;
 }
 
-.btn:hover {
+.btn:hover,
+.record-btn:hover {
   color: #343a40;
 }
 
 /* BUTTON 2 */
-.btn::after,
-.btn-social::after {
+.btn:after,
+.btn-social:after,
+.record-btn:after {
   height: 100%;
   left: 0;
   top: 0;
@@ -152,6 +159,7 @@ footer {
 }
 
 .btn:hover:after,
+.record-btn:hover:after,
 .btn-social:hover:after {
   width: 100%;
 }
@@ -173,9 +181,6 @@ footer {
   position: relative;
   text-transform: uppercase;
   width: 300px;
-}
-.kakao,
-.google {
 }
 
 .google::before,

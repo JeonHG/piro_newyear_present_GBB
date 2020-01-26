@@ -38,6 +38,7 @@
 
     <!-- css files -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/game_record.css' %}" />
 
     <title>
       {% block title %} {% endblock %}
@@ -45,10 +46,7 @@
   </head>
 
   <body>
-    {% include 'navbar.html' %}
-    <div class="main">
-      {% block content %} {% endblock %}
-    </div>
+    {% include 'navbar.html' %} {% block content %} {% endblock %} 
     {% include 'footer.html' %}
   </body>
 </html>

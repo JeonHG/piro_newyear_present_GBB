@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
 - 가위바위보:) {% endblock %} {% block content %}
+<div class="main">
 <div class="container main-container">
   <div class="row">
     {% if request.user.is_authenticated %}
@@ -38,5 +39,5 @@
     </div>
   </div>
 </div>
-
+</div>
 {% endblock %}
