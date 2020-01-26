@@ -1,19 +1,24 @@
 {% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
 - 가위바위보:) {% endblock %} {% block content %}
-<div class="container main-container">
-    <div class="row">
-        {{game}}
+<div class="main">
+<div class="container">
+    <div class="row box">
+        <div class="col-12 font1">
+            {{game}}
+        </div>
+        <div class="col-12 font1">
+            {{game.attacker}} - {{game.attacker_choice}}
+        </div>
+        <div class="col-12 font1">
+            {{game.defender}} - {{game.defender_choice}}
+        </div>
+        <div class="col-12 font1">
+            {%if item.winner == null%}무승부{%elif item.winner == request.user%}승{%else%}패{%endif%}
+        </div>
+        <a class="col-12 font1 atag" href="{%url "games:status" %}">
+            <button class="btn">전적보기</button>
+        </a>
     </div>
-    <div class="row">
-        {{game.attacker}} - {{game.attacker_choice}}
-    </div>
-    <div class="row">
-        {{game.defender}} - {{game.defender_choice}}
-    </div>
-    <div class="row">
-        {%if item.winner == null%}무승부{%elif item.winner == request.user%}승{%else%}패{%endif%}
-    </div>
-    <a href="{%url "games:status" %}">전적보기</a>
 </div>
-
+</div>
 {% endblock %}

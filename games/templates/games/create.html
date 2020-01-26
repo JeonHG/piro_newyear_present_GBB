@@ -3,11 +3,14 @@
 
 <div class="main">
 <div class="container-wrap">
-  <div class="row font1">
+  <div class="row font1 mb-5">
     공격자: {{request.user}}
   </div>
   <form class="font1" action="{% url "games:processing" %}" method="POST">
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %}
+    <div class="box2">
+      {{ form.as_p }}
+    </div>
     <div class="btn-wrap">
       <button class="btn" type="submit">마 들어오라</button>
     </div>

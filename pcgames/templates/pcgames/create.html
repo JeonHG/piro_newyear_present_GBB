@@ -1,5 +1,16 @@
-<form action="" method="POST">
+{% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
+- 가위바위보:) {% endblock %} {% block content %}
+<div class="main">
+  <form action="" method="POST">
     {%csrf_token%}
-    {{form}}
-    <input type="submit" value="선택완료">
-</form>
+    <div class="font1">
+      <div class="row mb-5">
+        {{form}}
+      </div>
+      <div class="row">
+        <button class="btn" type="submit">선택완료</button>
+      </div>
+    </div>
+  </form>
+</div>
+{%endblock%}
