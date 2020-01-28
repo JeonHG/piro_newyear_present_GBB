@@ -1,35 +1,35 @@
 {% extends 'base.html' %} {% load staticfiles %} {% block title %} Pirogramming
 - 가위바위보:) {% endblock %} {% block content %}
 <div class="container box">
-    <a class="atag col-12 col-sm-6" href="{% url "games:main" %}">
-        <button class="btn">사람과 플레이하기</button>
-    </a>
-    <a class="atag col-12 col-sm-6" href="{% url "pcgames:play" %}">
-        <button class="btn">컴퓨터와 플레이하기</button>
-    </a>
+  <a class="atag col-12 col-sm-6" href="{% url "games:main" %}">
+    <button class="btn">사람과 플레이하기</button>
+  </a>
+  <a class="atag col-12 col-sm-6" href="{% url "pcgames:play" %}">
+    <button class="btn">컴퓨터와 플레이하기</button>
+  </a>
 </div>
 <div class="container game-record-main">
-<div class="row font1 box">
+  <div class="row font1 box">
     <h1>
-        컴퓨터 vs. 나의 전적
-    </h1> 
-</div>
-<div class="row">
+      컴퓨터 vs. 나의 전적
+    </h1>
+  </div>
+  <div class="row">
     {%for item in pcgames%}
     <div class="col-12 record-box">
       <div class="row">
         <div class="col-12 col-sm-6 box">
-          {{item}}
+          {{item}} - {%if item.winner%}인간 승{%else%}인간 패{%endif%}
         </div>
         <div class="col-12 col-sm-6 box">
-            <a class="atag" href="{% url "pcgames:detail" item.id %}">
+          <a class="atag" href="{% url "pcgames:detail" item.id %}">
 
             <button class="record-btn">게임정보</button>
           </a>
         </div>
       </div>
-  </div>
+    </div>
     {%endfor%}
-</div>
+  </div>
 </div>
 {%endblock%}
