@@ -43,10 +43,19 @@ class CreateView(CreateView):
     success_url = reverse_lazy("pcgames:status")
 
     def form_valid(self, form):
-        pc_random = random.randint(0, 2)
+        pc_random = random.randint(1, 3)
         form.instance.computer_choice_id = pc_random
         form.instance.winner = self.get_winner(form.instance.human_choice_id, pc_random)
+        print(
+            form.instance.computer_choice_id,
+            form.instance.human_choice_id,
+            form.instance.winner,
+            form.instance
+        )
+        # self.object = form.save()
         return super().form_valid(form)
+        # return HttpResponseRedirect(super().get_success_url())
+
 
     # https://docs.djangoproject.com/en/3.0/topics/class-based-views/generic-editing/
 
